@@ -137,8 +137,9 @@
 			//controls.addEventListener( 'change', render ); // add this only if there is no animation loop (requestAnimationFrame)
 			controls.enableDamping = true;
 			controls.dampingFactor = 0.25;
-			controls.enableZoom = false;
-			controls.zoomSpeed = 0.11;
+			controls.enableZoom = true;
+			controls.enablePan = false;
+			controls.zoomSpeed = 0.9;
 			controls.panSpeed = 0;
 			controls.rotateSpeed = 0.1;		
 	
@@ -308,7 +309,7 @@
 
 			noise = 1.0 *  -.1 * turbulence( .2 * normal + time*0.6 );
 
-			float b = 5.0 * pnoise( 0.05 * position + vec3( 2.0 * time*0.6 ), vec3( 100.0 ) );
+			float b = 6.0 * pnoise( 0.05 * position + vec3( 2.0 * time*0.6 ), vec3( 100.0 ) );
 		    float c = 1.0 * pnoise( 0.2 * position + vec3( 2.0 * time*0.3 ), vec3( 100.0 ) );
 		    return - noise + b + c ;
 
@@ -319,10 +320,10 @@
 			noise = 2.0 *  -.1 * turbulence( .2 * normal + time*0.6 );
 			
 
-			float b = 5.0 * pnoise( 0.05 * position + vec3( 2.0 * time*0.6 ), vec3( 100.0 ) );
+			float b = 7.0 * pnoise( 0.05 * position + vec3( 2.0 * time*0.6 ), vec3( 100.0 ) );
 		    float c = 1.0 * pnoise( 0.2 * position + vec3( 2.0 * time*0.3 ), vec3( 100.0 ) );
-		    float d = 1.1 * pnoise( 0.2 * position + vec3( 2.0 * time*0.9 ), vec3( 100.0 ) );
-		    float e = 1.4 * pnoise( 3.5 * position + vec3( 2.0 * time*2.1 ), vec3( 100.0 ) );
+		    float d = 1.1 * pnoise( 0.4 * position + vec3( 2.0 * time*0.9 ), vec3( 100.0 ) );
+		    float e = 1.0 * pnoise( 3.5 * position + vec3( 2.0 * time*2.1 ), vec3( 100.0 ) );
 		    return - noise + b + c + d + e ;
 
 		}
